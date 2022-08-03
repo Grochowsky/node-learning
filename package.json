@@ -1,0 +1,30 @@
+{
+  "name": "noded-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "watch": "nodemon index.js -e js,json,ejs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Grochowsky/noded-app.git"
+  },
+  "author": "Grochowsky",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Grochowsky/noded-app/issues"
+  },
+  "homepage": "https://github.com/Grochowsky/noded-app#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "node-fetch": "^3.2.10"
+  },
+  "type": "commonjs",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
