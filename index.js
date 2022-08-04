@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-const path = require('path')
+const path = require('path');
+const { ppid } = require('process');
 app.set('view engine', 'ejs')
 app.set('views', path.join(__dirname + '/views'))
 
@@ -11,16 +12,26 @@ app.get('/', (req,res) => {
     res.render('home')
 })
 
-app.get('/kontakt',(req,res) => {
-res.send('asdada')
+
+app.get('/firmy/:name', (req,res) => {
+    const { name } = req.params;
+    const compnies = [
+        { slug: 'tworcastron', name: 'Tworc Stron.pl' },
+        { slug: 'brukmode', name: 'Bruk Mode' }
+    ]
+   
+    const company = companies.find(x => x.slug === name );
+    res.render('company', { name: company?.name })
 })
 
-const users = [{name: 'jan', age: 2},{name: 'jaalann', age: 21}]
-app.get('/users',(req,res) => {
-    let html = `Siemanko wariaty sraty`
-    users.forEach(user => html+=`<h1>${user.name}</h1>`)
-    res.send(html)
-})
+
+
+    app.get('*', (req,res) => {
+    res.render('errors/404');
+});
+
+
+
+
 
 app.listen(port)
-;
