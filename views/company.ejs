@@ -1,0 +1,15 @@
+<%- include('./partials/header'); -%>
+
+    <% if (name) {%>
+    <h1>SIEMA <%= name %></h1>
+    <% } else { %>
+    <h1>NIE MA TAKIEJ STRONY: 404</h1>
+    <% } %>
+
+    <ul>
+        <% companies.forEach((e) =>{%>
+            <li><a href="/firmy/<%=e.slug%>"><%=e.name%></a></li>
+        <%})%>
+    </ul>
+
+<%- include('./partials/footer'); -%>
