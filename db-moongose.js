@@ -8,11 +8,20 @@ const Company = mongoose.model('Company', {
     slug: {
         type: String,
         required: [true, 'Pole slug jest wymagane'],
-        minLength: [3, ' Minimalnaa liczba znaków w slug to 3']
+        minLength: [3, ' Minimalnaa liczba znaków w slug to 3'],
+        valaidate: value => {
+            if (value==="slug"){
+                throw new Err('Nazwa SLUG jest zakazana'); // customowa waalidacja. jesli dodasz slug name to wtedy wyrzuci blad
+            }
+        }
     },
     name: {
         type: String,
         required: [true, ' Pole name jest wymagane']
+    },
+    employesCount: {
+        type: Number,
+        min: 1,
     }
 })
 
@@ -21,8 +30,9 @@ async function main(){
     //console.log(companies);
 
     const company  = new Company ({
-        name: '',
-        slug: "ss"
+        name: '232',
+        slug: "sss",
+        employesCount: 2,
     });
     try {
         await company.save();
