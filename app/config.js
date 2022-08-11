@@ -1,4 +1,7 @@
+require('dotenv').config()
+
+
 module.exports = {
-    port: 3000,
-    database: 'mongodb://localhost:27017/node-kurs'
+    port: process.env.PORT || 3000,
+    database: process.env.DATABASE || 'mongodb://localhost:27017/node-kurs',
 }
