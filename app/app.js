@@ -12,7 +12,7 @@ require('./db/mongoose');
 
 //view engine
 app.set('view engine', 'ejs') // musimy powiedziec ze bedziemy korzystac z ejs
-app.set('views', path.join(__dirname + '/views')) //tu musimy wskazac scezke pliku z widokami
+app.set('views', path.join(__dirname + '/../views')) //tu musimy wskazac scezke pliku z widokami
 
 //set layout
 app.use(ejsLayouts);
