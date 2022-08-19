@@ -1,0 +1,18 @@
+<form method="POST" action="/admin/firmy/dodaj">
+    <div class="mb-3">
+        <label for="" class="form-label">Nazwa firmy</label>
+        <input type="text" name="name" class="form-control" required>
+        <div class="form-text">Przynajmniej 3 znaki</div>
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">slug</label>
+        <input type="text" name="slug"  class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="" class="form-label">Liczba pracowników</label>
+        <input type="number" name="employeesCount" class="formcontrol">
+    </div>
+    <button class="btn btn-primary">Dodaj firme</button>
+</form>

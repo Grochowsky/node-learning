@@ -21,6 +21,11 @@ app.set('layout','./layouts/main');
 // public foldedr
 app.use(express.static('public'));
 
+//middleware
+app.use('/', require('./middleware/view-variables'))
+
+//body parser // application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: true}))  // odczyta wartosci i zapisze do body // application/x-www-form-urlencoded
 // mount routers
 
 app.use(require('./routes/web.js'))

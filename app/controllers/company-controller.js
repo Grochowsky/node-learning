@@ -5,10 +5,9 @@ class CompanyController {
    async showCompanies(req,res) {
         const companies = await Company.find({});
 
-        res.render('pages/companies',{
+        res.render('pages/companies/companies',{
             companies,
-            url: req.url,
-            title: "asd",
+            title: 'asda'
         } )
     }
 
@@ -18,11 +17,19 @@ class CompanyController {
        
         const company = await Company.findOne({ slug:name });
     
-        res.render('pages/company', { 
+        res.render('pages/companies/company', { 
             name: company?.name, 
             title: company?.name ?? "Brak wyniku",
-            url: req.url,
+
         })
+    }
+
+    showCreateCompanyForm(req,res){
+        res.render('pages/companies/create', {title:'Doodaj firmę'})
+    }
+
+    async createCompany(req,res){
+        console.log(req.body)
     }
 }
 
