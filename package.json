@@ -25,7 +25,8 @@
     "express-ejs-layouts": "^2.5.1",
     "mongodb": "^4.8.1",
     "mongoose": "^6.5.1",
-    "node-fetch": "^3.2.10"
+    "node-fetch": "^3.2.10",
+    "prettier": "^2.7.1"
   },
   "type": "commonjs",
   "devDependencies": {

@@ -30,6 +30,24 @@ class CompanyController {
 
     async createCompany(req,res){
         console.log(req.body)
+        const company = new Company({
+            name: req.body.name,
+            slug: req.body.slug,
+            employesCount: req.body.employesCount,
+
+        });
+        try{
+            await company.save();
+            res.redirect('/firmy');
+        } catch(e) {
+ 
+            res.render('pages/companies/create',{
+                errors: e.errors,
+                title: 'ffff',
+                form: req.body,
+            })
+        }
+        
     }
 }
 

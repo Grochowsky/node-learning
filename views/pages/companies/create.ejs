@@ -1,13 +1,20 @@
 <form method="POST" action="/admin/firmy/dodaj">
     <div class="mb-3">
         <label for="" class="form-label">Nazwa firmy</label>
-        <input type="text" name="name" class="form-control" required>
-        <div class="form-text">Przynajmniej 3 znaki</div>
+        <input type="text" name="name" class="form-control <%- errors?.name ? 'is-invalid' : ''%>" required>
+        <% if (errors?.name) { %>
+            <div class="invalid-feedback"><%= errors.name.message %></div>
+        <%}%>
+       
     </div>
 
     <div class="mb-3">
         <label for="" class="form-label">slug</label>
-        <input type="text" name="slug"  class="form-control" required>
+        <input type="text" name="slug"  class="form-control <%- errors?.slug ? 'is-invalid' : ''%>"required>
+        <div class="form-text">Przynajmniej 3 znaki</div>
+        <% if (errors?.slug) { %>
+            <div class="invalid-feedback"> <%= errors.slug.message %> </div>
+        <%}%>
     </div>
 
     <div class="mb-3">
@@ -16,3 +23,13 @@
     </div>
     <button class="btn btn-primary">Dodaj firme</button>
 </form>
+
+<% if (errors) {%>
+<div class="aler alert-danger">
+    <ul>
+        <% for (const key in errors){ %>
+        <li><%= errors[key].message%></li>
+        <% }%>
+    </ul>
+</div>
+<%}%>
