@@ -81,6 +81,17 @@ class CompanyController {
         }
         
     }
+
+    async deleteCompany(req, res) {
+        const {name} = req.params
+        try{
+            await Company.deleteOne({slug: name})
+            res.redirect('/firmy')
+        }catch(e){
+
+        }
+    }
+
 }
 
 module.exports = new CompanyController()

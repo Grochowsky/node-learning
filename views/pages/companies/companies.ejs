@@ -6,8 +6,8 @@
                     <div class="card-body">
                         <p class="h3 mb-4"><%= company.name %></p>
                         <a href="/firmy/<%= company.slug %>" class="btn btn-primary">Zobacz</a>
-                        <a href="/admin/firmy/<%= company.slug %>/edytuj" class="btn btn-primary">Edytuj</a>
-                        <a href="/admin/firmy/<%= company.slug %>/usun" class="btn btn-primary">Usuń</a>
+                        <a href="/admin/firmy/<%= company.slug %>/edytuj" class="btn btn-warning">Edytuj</a>
+                        <a href="/admin/firmy/<%= company.slug %>/usun" class="btn btn-danger" onclick="return confirm('czy jestes pewny ze chcesz usunac?')">Usuń</a>
                     </div>
                 </div>
 
