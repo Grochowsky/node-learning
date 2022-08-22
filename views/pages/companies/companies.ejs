@@ -1,9 +1,17 @@
 <h1>Lista Firm</h1>
     
-        <ul>
-            <% companies.forEach((e) =>{%>
-                <li><a href="/firmy/<%=e.slug%>"><%=e.name%></a></li>
+
+            <% companies.forEach((company) =>{%>
+                <div class="card bg-light mb-3">
+                    <div class="card-body">
+                        <p class="h3 mb-4"><%= company.name %></p>
+                        <a href="/firmy/<%= company.slug %>" class="btn btn-primary">Zobacz</a>
+                        <a href="/admin/firmy/<%= company.slug %>/edytuj" class="btn btn-primary">Edytuj</a>
+                        <a href="/admin/firmy/<%= company.slug %>/usun" class="btn btn-primary">Usuń</a>
+                    </div>
+                </div>
+
             <%})%>
-        </ul>
+
     
     

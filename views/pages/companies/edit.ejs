@@ -1,37 +1,3 @@
 <h1>Edytuj firmę</h1>
 
-<form method="POST" action="/admin/firmy/dodaj">
-    <div class="mb-3">
-        <label for="" class="form-label">Nazwa firmy</label>
-        <input type="text" name="name" value="<%= form.name %>"class="form-control <%- errors?.name ? 'is-invalid' : ''%>" required>
-        <% if (errors?.name) { %>
-            <div class="invalid-feedback"><%= errors.name.message %></div>
-        <%}%>
-       
-    </div>
-
-    <div class="mb-3">
-        <label for="" class="form-label">slug</label>
-        <input type="text" name="slug" value="<%= form.slug %>" class="form-control <%- errors?.slug ? 'is-invalid' : ''%>"required>
-        <div class="form-text">Przynajmniej 3 znaki</div>
-        <% if (errors?.slug) { %>
-            <div class="invalid-feedback"> <%= errors.slug.message %> </div>
-        <%}%>
-    </div>
-
-    <div class="mb-3">
-        <label for="" class="form-label">Liczba pracowników</label>
-        <input type="number" value="<%= form.employeesCount %>" name="employeesCount" class="formcontrol">
-    </div>
-    <button class="btn btn-primary">Edytuj firme</button>
-</form>
-
-<% if (errors) {%>
-<div class="aler alert-danger">
-    <ul>
-        <% for (const key in errors){ %>
-        <li><%= errors[key].message%></li>
-        <% }%>
-    </ul>
-</div>
-<%}%>
+<%- include('partials/form', {buttonText:"Edytuj firmę"})%>
