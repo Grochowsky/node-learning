@@ -1,4 +1,4 @@
-<h1>Dodaj firme</h1>
+<h1>Edytuj firmę</h1>
 
 <form method="POST" action="/admin/firmy/dodaj">
     <div class="mb-3">
@@ -23,7 +23,7 @@
         <label for="" class="form-label">Liczba pracowników</label>
         <input type="number" value="<%= form.employeesCount %>" name="employeesCount" class="formcontrol">
     </div>
-    <button class="btn btn-primary">Dodaj firme</button>
+    <button class="btn btn-primary">Edytuj firme</button>
 </form>
 
 <% if (errors) {%>

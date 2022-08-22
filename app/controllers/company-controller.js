@@ -49,6 +49,38 @@ class CompanyController {
         }
         
     }
+    async showEditCompanyForm(req,res){
+        const {name} = req.params
+        const company = await Company.findOne({slug:name})
+        res.render('pages/companies/edit', {
+            title:'Doodaj firmę',
+            form: company
+        })
+    }
+
+    async editCompany(req,res){
+
+        const {name} = req.params
+        const company = await Company.findOne({slug:name})
+        company.name=req.body.name;
+        company.slug=req.body.slug;
+        company.employesCount = req.body.employesCount;
+        console.log(req.body)
+
+
+        try{
+            await company.save();
+            res.redirect('/firmy');
+        } catch(e) {
+ 
+            res.render('pages/companies/edit',{
+                errors: e.errors,
+                title: 'ffff',
+                form: req.body,
+            })
+        }
+        
+    }
 }
 
 module.exports = new CompanyController()
